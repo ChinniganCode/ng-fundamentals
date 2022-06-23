@@ -5,7 +5,6 @@ declare let toastr
 
 
 @Component({
-  selector: 'events-list',
   template:
     `
     <div>
@@ -19,10 +18,10 @@ declare let toastr
       </div>
   </div>
   `,
-  styles: [`
+  styles:
+    [`
 
-
-  `]
+    `]
 })
 export class EventsListComponent implements OnInit {
   events:any[]
