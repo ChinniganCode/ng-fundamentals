@@ -20,6 +20,7 @@ import {
 
 
 } from './events/index'
+import {AuthService} from "./user/auth.service";
 
 
 
@@ -43,6 +44,7 @@ import {
     ToastrService,
     EventRouteActivator,
     EventsListResolver,
+    AuthService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
