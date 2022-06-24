@@ -15,12 +15,14 @@ import {
   EventsDetailsComponent,
   CreateEventComponent,
   EventRouteActivator,
-  EventsListResolver
+  EventsListResolver,
+  CreateSessionComponent,
 
 
 
 } from './events/index'
 import {AuthService} from "./user/auth.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -32,11 +34,13 @@ import {AuthService} from "./user/auth.service";
     NavBarComponent,
     EventsDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
