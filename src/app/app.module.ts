@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {EventsAppComponent} from "./events-app.component";
 import {NavBarComponent} from "./nav/nav-bar.component";
 import {ToastrService} from "./common/toastr.service";
+import {CollapsibleWellComponent } from "./common/collapsible-well.component";
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./routes";
 import {Error404Component} from "./errors/404.component";
@@ -35,7 +36,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent,
   ],
   imports: [
     BrowserModule,
