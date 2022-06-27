@@ -4,7 +4,8 @@ import {last} from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
-  currentUser:IUser
+  public currentUser:IUser
+
   loginUser(userName: string, password: string) {
     this.currentUser = {
       id: 1,
