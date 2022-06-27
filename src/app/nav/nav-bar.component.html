@@ -19,7 +19,8 @@
           </a>
           <ul class="dropdown-menu">
             <li >
-              <a href="">Angular Connect</a>
+              <a *ngFor="let session of foundSessions"
+                 [routerLink]="['/events', session.eventId]">{{session.name}} </a>
             </li>
           </ul>
         </li>
