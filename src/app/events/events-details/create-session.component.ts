@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Inject, OnInit, Output} from "@angular/core";
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import {ISession, restrictedWords} from "../shared/index";
+import {Toastr, TOASTR_TOKEN} from "../../common";
 @Component({
   selector: 'create-session',
   templateUrl: './create-session.component.html',
@@ -22,14 +23,17 @@ export class CreateSessionComponent implements OnInit {
   duration: FormControl
   level: FormControl
   abstract: FormControl
+  constructor(@Inject(TOASTR_TOKEN) private toastr: Toastr) {
+
+  }
 
   ngOnInit() {
     this.name = new FormControl('', Validators.required)
     this.presenter = new FormControl('', Validators.required)
     this.duration = new FormControl('', Validators.required)
     this.level = new FormControl('', Validators.required)
-    this.abstract = new FormControl('',
-      [Validators.required, Validators.maxLength(400), restrictedWords(['foo', 'bar'])])
+    this.abstract = new FormControl('', [Validators.required,
+      Validators.maxLength(400), restrictedWords(['foo', 'bar'])])
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -39,6 +43,7 @@ export class CreateSessionComponent implements OnInit {
       abstract: this.abstract
     })
   }
+
 
 
   saveSession(formValues) {
@@ -51,6 +56,7 @@ export class CreateSessionComponent implements OnInit {
       abstract: formValues.abstract,
       voters: []
     }
+    this.toastr.success("Session Added!")
     this.saveNewSession.emit(session)
   }
   cancel() {
