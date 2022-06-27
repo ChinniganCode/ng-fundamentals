@@ -13,14 +13,14 @@
         <li><a [routerLink]="['/events/new']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">Create Event</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" (click)="getEvents()">
             Events
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li >
-              <a *ngFor="let session of foundSessions"
-                 [routerLink]="['/events', session.eventId]">{{session.name}} </a>
+            <li>
+              <a *ngFor="let events of foundEvents"
+                 [routerLink]="['/events', events.id]">{{events.name}} </a>
             </li>
           </ul>
         </li>
