@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {EventsAppComponent} from "./events-app.component";
 import {NavBarComponent} from "./nav/nav-bar.component";
-import {TOASTR_TOKEN,Toastr } from "./common/toastr.service";
-import {CollapsibleWellComponent } from "./common/collapsible-well.component";
+import { JQ_TOKEN,
+  TOASTR_TOKEN,
+  Toastr,
+  CollapsibleWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective} from './common/index'
+
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./routes";
 import {Error404Component} from "./errors/404.component";
@@ -20,12 +25,14 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
+  UpvoteComponent
 
 } from './events/index'
 import {AuthService} from "./user/auth.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-declare let toastr:Toastr
+let toastr:Toastr = window['toastr'];
+let jQuery = window['$'];
 @NgModule({
   declarations: [
     EventsAppComponent,
@@ -39,6 +46,9 @@ declare let toastr:Toastr
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +59,7 @@ declare let toastr:Toastr
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     EventsListResolver,
     AuthService,
