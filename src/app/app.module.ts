@@ -25,7 +25,9 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
-  UpvoteComponent
+  UpvoteComponent,
+  VoterService,
+  LocationValidator
 
 } from './events/index'
 import {AuthService} from "./user/auth.service";
@@ -48,7 +50,8 @@ let jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ let jQuery = window['$'];
     EventRouteActivator,
     EventsListResolver,
     AuthService,
-    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })

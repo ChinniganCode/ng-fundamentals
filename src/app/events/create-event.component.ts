@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import {Router} from "@angular/router";
-import { EventService } from './shared/index'
+import {EventService, IEvent} from './shared/index'
 @Component({
   templateUrl: 'create-event.component.html',
   styles: [`
@@ -13,7 +13,7 @@ import { EventService } from './shared/index'
   `]
 })
 export class CreateEventComponent {
-  event
+  event : IEvent
   isDirty:boolean = false
   constructor(private router: Router, private eventService: EventService) {
   }
