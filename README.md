@@ -1,5 +1,12 @@
 # NgFundamentals
+1. Run `npm run server` to start the express server
+2. Run `npm start` 
 
+- Using Node version 14.16.0 
+
+
+
+Run 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
 ## Development server
